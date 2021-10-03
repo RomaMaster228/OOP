@@ -77,8 +77,11 @@ int main() {
 	setlocale(LC_ALL, "rus");
 	double a1, b1, a2, b2;
 	cout << "Введите через пробел собственные деньги и заёмные деньги одного и второго бюджетов: ";
-	cin >> a1 >> b1 >> a2 >> b2;
-	Budget a = { a1, b1 };
+	if (!(cin >> a1 >> b1 >> a2 >> b2)) {
+		cout << "Данные некорректны!" << '\n';
+		return -1;
+	}
+	Budget a = { a1, b1 };;
 	Budget b = { a2, b2 };
 	cout << "Первый бюджет: ";
 	a.print_budget();
